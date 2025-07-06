@@ -40,9 +40,27 @@ variable "openai_deployment_name" {
   type        = string
 }
 
+variable "gpt4o_deployment_name" {
+  description = "The deployment name of the GPT-4o model."
+  type        = string
+  default     = null
+}
+
 variable "key_vault_uri" {
   description = "The URI of the Key Vault to retrieve secrets from."
   type        = string
+}
+
+variable "gemini_api_key_secret_uri" {
+  description = "The URI of the Gemini API Key secret in Key Vault."
+  type        = string
+  default     = null
+}
+
+variable "claude_api_key_secret_uri" {
+  description = "The URI of the Claude API Key secret in Key Vault."
+  type        = string
+  default     = null
 }
 
 variable "tags" {

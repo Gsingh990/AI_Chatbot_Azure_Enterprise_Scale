@@ -29,6 +29,9 @@ resource "azurerm_windows_web_app" "main" {
     "KeyVaultUri"          = var.key_vault_uri
     "WEBSITES_ENABLE_APP_SERVICE_STORAGE" = "false"
     "SCM_DO_BUILD_DURING_DEPLOYMENT" = "true" # Required for Python apps
+    "GeminiApiKeySecretUri" = var.gemini_api_key_secret_uri != null ? var.gemini_api_key_secret_uri : ""
+    "ClaudeApiKeySecretUri" = var.claude_api_key_secret_uri != null ? var.claude_api_key_secret_uri : ""
+    "Gpt4oDeploymentName"   = var.gpt4o_deployment_name != null ? var.gpt4o_deployment_name : ""
   }
 
   identity {

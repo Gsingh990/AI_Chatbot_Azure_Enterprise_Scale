@@ -67,6 +67,30 @@ variable "openai_model_capacity" {
   default     = 1
 }
 
+variable "gpt4o_model_name" {
+  description = "The name of the GPT-4o model to deploy."
+  type        = string
+  default     = "gpt-4o"
+}
+
+variable "gpt4o_model_version" {
+  description = "The version of the GPT-4o model to deploy."
+  type        = string
+  default     = "2024-05-13"
+}
+
+variable "gpt4o_model_deployment_name" {
+  description = "The name of the deployment for the GPT-4o model."
+  type        = string
+  default     = "gpt4o-deployment"
+}
+
+variable "gpt4o_model_capacity" {
+  description = "The capacity for the GPT-4o model deployment."
+  type        = number
+  default     = 1
+}
+
 variable "cognitive_search_name" {
   description = "The name of the Azure Cognitive Search service."
   type        = string
@@ -97,8 +121,22 @@ variable "app_service_plan_sku" {
   default     = "B1"
 }
 
-# variable "app_service_plan_os_type" {
-#   description = "The OS type for the App Service Plan (Windows or Linux)."
-#   type        = string
-#   default     = "Windows"
-# }
+variable "app_service_plan_os_type" {
+  description = "The OS type for the App Service Plan (Windows or Linux)."
+  type        = string
+  default     = "Windows"
+}
+
+variable "gemini_api_key" {
+  description = "The API key for Google Gemini LLM. Will be stored in Key Vault."
+  type        = string
+  default     = "" # Provide your actual Gemini API key here
+  sensitive   = true
+}
+
+variable "claude_api_key" {
+  description = "The API key for Anthropic Claude LLM. Will be stored in Key Vault."
+  type        = string
+  default     = "" # Provide your actual Claude API key here
+  sensitive   = true
+}

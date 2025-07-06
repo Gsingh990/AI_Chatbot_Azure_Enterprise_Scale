@@ -23,3 +23,21 @@ resource "azurerm_cognitive_deployment" "openai_model" {
     capacity = var.openai_model_capacity
   }
 }
+
+resource "azurerm_cognitive_deployment" "gpt4o_model" {
+  count = var.gpt4o_model_name != "" ? 1 : 0
+
+  name                 = var.gpt4o_model_deployment_name
+  cognitive_account_id = azurerm_cognitive_account.openai.id
+
+  model {
+    format  = "OpenAI"
+    name    = var.gpt4o_model_name
+    version = var.gpt4o_model_version
+  }
+
+  scale {
+    type    = "Standard"
+    capacity = var.gpt4o_model_capacity
+  }
+}

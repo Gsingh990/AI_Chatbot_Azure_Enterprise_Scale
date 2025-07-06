@@ -18,3 +18,17 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "gemini_api_key" {
+  description = "The API key for Google Gemini LLM. Will be stored in Key Vault."
+  type        = string
+  default     = "" # Provide your actual Gemini API key here
+  sensitive   = true
+}
+
+variable "claude_api_key" {
+  description = "The API key for Anthropic Claude LLM. Will be stored in Key Vault."
+  type        = string
+  default     = "" # Provide your actual Claude API key here
+  sensitive   = true
+}
